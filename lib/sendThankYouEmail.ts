@@ -1,34 +1,35 @@
+// lib/sendThankYouEmail.ts
 import nodemailer from "nodemailer";
 
 interface User {
-      email: string;
+  email: string;
 }
 
 interface ProductData {
-      name: string;
-      image: string;
+  name: string;
+  image: string;
 }
 
 export async function sendThankYouEmail(
-      user: User,
-      productData: ProductData
+  user: User,
+  productData: ProductData
 ) {
-      const transporter = nodemailer.createTransport({
-            service: 'Gmail',
-            auth: {
-                  user: process.env.SMTP_EMAIL!,
-                  pass: process.env.SMTP_PASSWORD!,
-            },
-      });
+  const transporter = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+      user: process.env.SMTP_EMAIL!,
+      pass: process.env.SMTP_PASSWORD!,
+    },
+  });
 
-      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://greenrecycle.vercel.app';
-      const fullImageUrl = `${baseUrl}${productData.image}`;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://greenrecycle.vercel.app";
+  const fullImageUrl = `${baseUrl}${productData.image}`;
 
-      const mailOptions = {
-            from: `GreenPoints <${process.env.SMTP_EMAIL}>`,
-            to: user.email,
-            subject: `🎉 Thank you for redeeming ${productData.name}!`,
-            html: `
+  const mailOptions = {
+    from: `GreenPoints <${process.env.SMTP_EMAIL}>`,
+    to: user.email,
+    subject: `🎉 Thank you for redeeming ${productData.name}!`,
+    html: `
       <div style="font-family: Arial, sans-serif; padding: 20px;">
         <h2 style="color: green;">✅ Thanks for Redeeming!</h2>
         <p>Hi there,</p>
@@ -41,10 +42,11 @@ export async function sendThankYouEmail(
         <p style="font-size: 12px; color: #555;">This is an automated email. Please do not reply.</p>
       </div>
     `,
-      };
-      try {
-            await transporter.sendMail(mailOptions);
-      } catch (error) {
-            console.error("❌ Error sending thank-you email:", error);
-      }
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+  } catch (error) {
+    console.error("❌ Error sending thank-you email:", error);
+  }
 }
