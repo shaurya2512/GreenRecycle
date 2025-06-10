@@ -92,7 +92,7 @@ const product: {
 };
 
 
-export async function sendThankYouEmail(
+async function sendThankYouEmail(
       to: string,
       productName: string,
       productImage: string
