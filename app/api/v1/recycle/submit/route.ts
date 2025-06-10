@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import connectMongoDB from "lib/mongodb";
-import RecycleSubmission from "@/models/smartphone/smartphoneRecycleRequestModel";
+import RecycleSubmission from "@/models/smartphone/smartphoneRecycleSubmission";
 
 export async function POST(req: Request) {
       try {
