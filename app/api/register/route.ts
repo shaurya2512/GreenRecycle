@@ -43,3 +43,8 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: "Server error" }, { status: 500 });
       }
 }
+
+export function GET() {
+  return NextResponse.json({ status: "API is working" });
+}
+
