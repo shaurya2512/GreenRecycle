@@ -47,7 +47,7 @@ const Signin: React.FC = () => {
 			const session = await getSession();
 
 			if (session?.user.role === "admin") {
-				router.push("/admin");
+				router.push("/");
 			} else {
 				router.push("/");
 			}
