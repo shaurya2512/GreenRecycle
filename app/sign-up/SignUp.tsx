@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState, ChangeEvent, FormEvent, useEffect} from "react";
+import React, { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import axios from "axios";
