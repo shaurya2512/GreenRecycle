@@ -32,7 +32,7 @@ export async function POST(req: Request) {
                   email,
                   phoneNumber,
                   password: hashedPassword,
-                  role: email === "admin@example.com" ? "admin" : "user",
+                  role: email === "shauryaagarwal53@gmail.com" ? "admin" : "user",
             });
 
             await newUser.save();
