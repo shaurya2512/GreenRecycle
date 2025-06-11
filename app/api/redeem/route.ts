@@ -128,3 +128,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "You have to signin" }, { status: 500 });
   }
 }
+
+export function GET() {
+  return NextResponse.json({ status: "API is working" });
+}
+
