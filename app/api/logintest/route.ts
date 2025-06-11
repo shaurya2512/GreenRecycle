@@ -28,7 +28,7 @@ export async function POST(req: Request) {
                   expiresIn: "7d",
             });
 
-            const role = user.email === "admin@example.com" ? "admin" : "user";
+            const role = user.email === "shauryaagarwal53@gmail.com" ? "admin" : "user";
 
             const userData = {
                   id: user._id,
