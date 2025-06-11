@@ -35,7 +35,7 @@ const Header = () => {
 	useEffect(() => {
 		if (session?.user) {
 			setUser(session.user);
-			if (session.user.name?.toLowerCase() === "admin") {
+			if (session.user.role?.toLowerCase() === "admin") {
 				setIsAdmin(true);
 			}
 		}
